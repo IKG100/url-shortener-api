@@ -46,27 +46,27 @@ The URL Shortener Project provides the following features:
 
 - **Start the development database stack**:  
   ```bash
-  docker compose -p url_shortener_api_devstack -f ./docker-compose-dev.yml up --build
+  docker compose -f ./docker-compose-dev.yml up --build
 
 - **Run the application**:  
   ```bash
-  mvn clean spring-boot:run -Pdev
+  ./mvnw clean spring-boot:run -Pdev
 
 ### Running tests
 
 - **Start tests (with test database)**:  
   ```bash
-  mvn clean test 
+  ./mvnw clean test 
 
 ### Production Environment (prod profile, port: 9999)
 
 - **Build the application**:  
   ```bash
-  mvn clean package -Pprod
+  ./mvnw clean package -Pprod
 
 - **Start the full application stack**:  
   ```bash
-  docker compose -p url_shortener_api_prodstack -f ./docker-compose-prod.yml up --build
+  docker compose -f ./docker-compose-prod.yml up --build
 
 ## Swagger UI
 
@@ -78,4 +78,4 @@ with the corresponding profile:
 
 ## Author
 
-Developed by [Ihor Kolybaba](https://github.com/jawisimo)
+Developed by [Ihor Kolybaba](https://github.com/devexhale)

@@ -2,13 +2,9 @@ name: Tests & Build
 
 on:
   push:
-    branches:
-      - master
-      - dev
+    branches: [ master, dev ]
   pull_request:
-    branches:
-      - master
-      - dev
+    branches: [ master, dev ]
 
 permissions:
   contents: read
@@ -31,8 +27,8 @@ jobs:
       - name: Grant execute permission for mvnw
         run: chmod +x mvnw
 
-      - name: Run tests
-        run: ./mvnw clean verify -Dspring.profiles.active=test --batch-mode --update-snapshots
+      - name: Run build & tests
+        run: ./mvnw package -Pprod --batch-mode --update-snapshots
 
       - name: Publish test report
         uses: mikepenz/action-junit-report@v6
@@ -47,6 +43,3 @@ jobs:
           name: jacoco-html
           path: '**/target/site/jacoco'
           if-no-files-found: error
-
-      - name: Run build
-        run: ./mvnw package -Pprod --batch-mode --update-snapshots
